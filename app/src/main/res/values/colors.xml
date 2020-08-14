@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#6200EE</color>
+  <color name="colorPrimaryDark">#3700B3</color>
+  <color name="colorAccent">#03DAC5</color>
+  <color name="white">#FFFFFF</color>
+  <color name="playerBackground">#fefbe3</color>
+  <color name="mainBackground">#112e40</color>
+  <color name="textDefault">#4e4c62</color>
+  <color name="textOrange">#ff7775</color>
+  <color name="buttonBackground">#4e4c62</color>
+  <color name="nav_background">#0097A7</color>
+  <color name="nav_selected">#0083ff</color>
+</resources>

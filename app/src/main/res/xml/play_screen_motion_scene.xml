@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+  <Transition
+      motion:constraintSetEnd="@id/play_screen_expanded_normal"
+      motion:constraintSetStart="@id/play_screen_minimized"
+      motion:duration="300"
+      app:motionInterpolator="easeInOut">
+    <OnSwipe
+        app:dragDirection="dragUp"
+        app:maxAcceleration="200"
+        app:touchAnchorId="@+id/player_background_view"
+        app:touchAnchorSide="top"
+        />
+
+    <KeyFrameSet>
+      <KeyAttribute
+          app:framePosition="100"
+          app:motionTarget="@id/audio_name_text_view">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="1.0" />
+      </KeyAttribute>
+
+      <KeyAttribute
+          app:framePosition="70"
+          app:motionTarget="@id/audio_name_text_view">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="0.0" />
+      </KeyAttribute>
+    </KeyFrameSet>
+
+    <KeyFrameSet>
+      <KeyAttribute
+          app:framePosition="100"
+          app:motionTarget="@id/artist_name_text_view">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="1.0" />
+      </KeyAttribute>
+
+      <KeyAttribute
+          app:framePosition="70"
+          app:motionTarget="@id/artist_name_text_view">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="0.0" />
+      </KeyAttribute>
+    </KeyFrameSet>
+
+    <KeyFrameSet>
+      <KeyAttribute
+          app:framePosition="100"
+          app:motionTarget="@id/top_frame_layout">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="1.0" />
+      </KeyAttribute>
+
+      <KeyAttribute
+          app:framePosition="70"
+          app:motionTarget="@id/top_frame_layout">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="0.0" />
+      </KeyAttribute>
+    </KeyFrameSet>
+
+    <KeyFrameSet>
+      <KeyAttribute
+          app:framePosition="0"
+          app:motionTarget="@id/audio_name_text_view_min">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="1.0" />
+      </KeyAttribute>
+
+      <KeyAttribute
+          app:framePosition="70"
+          app:motionTarget="@id/audio_name_text_view_min">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="0.0" />
+      </KeyAttribute>
+    </KeyFrameSet>
+
+    <KeyFrameSet>
+      <KeyAttribute
+          app:framePosition="0"
+          app:motionTarget="@id/artist_name_text_view_min">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="1.0" />
+      </KeyAttribute>
+
+      <KeyAttribute
+          app:framePosition="70"
+          app:motionTarget="@id/artist_name_text_view_min">
+        <CustomAttribute
+            app:attributeName="alpha"
+            app:customFloatValue="0.0" />
+      </KeyAttribute>
+    </KeyFrameSet>
+  </Transition>
+
+
+  <ConstraintSet android:id="@+id/play_screen_expanded_normal">
+    <Constraint
+        android:id="@id/player_background_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="3dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+    <Constraint
+        android:id="@id/top_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/player_background_view"/>
+
+    <Constraint
+        android:id="@id/album_art_image_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintHeight_percent=".4"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_frame_layout"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+
+    <Constraint
+        android:id="@id/audio_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/album_art_image_view"
+        app:layout_constraintBottom_toTopOf="@id/artist_name_text_view"
+        app:layout_constraintVertical_chainStyle="packed">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="1.0"/>
+    </Constraint>
+
+    <Constraint
+        android:id="@id/artist_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/audio_name_text_view"
+        app:layout_constraintVertical_chainStyle="packed">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="1.0"/>
+      <CustomAttribute
+          app:attributeName="textColor"
+          app:customColorValue="@color/textOrange" />
+    </Constraint>
+
+    <Constraint
+        android:id="@id/audio_name_text_view_min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/forward_15_image_view"
+        app:layout_constraintTop_toTopOf="@id/album_art_image_view">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="0.0"/>
+    </Constraint>
+
+    <Constraint
+        android:id="@id/artist_name_text_view_min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/forward_15_image_view"
+        app:layout_constraintTop_toBottomOf="@id/audio_name_text_view_min">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="0.0"/>
+    </Constraint>
+
+    <Constraint
+        android:id="@id/prev_image_view"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+    <Constraint
+        android:id="@id/back_15_image_view"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toStartOf="@id/play_pause_layout"
+        app:layout_constraintStart_toEndOf="@id/prev_image_view"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+    <Constraint
+        android:id="@id/play_pause_top_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".03"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <Constraint
+        android:id="@id/play_pause_layout"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/play_pause_bottom_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <Constraint
+        android:id="@id/play_pause_bottom_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".1"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <Constraint
+        android:id="@id/forward_15_image_view"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toStartOf="@id/next_image_view"
+        app:layout_constraintStart_toEndOf="@id/play_pause_layout"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+    <Constraint
+        android:id="@id/next_image_view"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+  </ConstraintSet>
+
+  <ConstraintSet android:id="@+id/play_screen_minimized">
+
+    <Constraint
+        android:id="@id/player_background_view"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <Constraint
+        android:id="@id/album_art_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/player_background_view"
+        app:layout_constraintStart_toStartOf="@id/player_background_view"
+        app:layout_constraintTop_toTopOf="@id/player_background_view"
+        />
+
+    <Constraint
+        android:id="@id/audio_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@id/artist_name_text_view"
+        app:layout_constraintEnd_toStartOf="@id/back_15_image_view"
+        app:layout_constraintStart_toEndOf="@id/album_art_image_view"
+        app:layout_constraintTop_toTopOf="@id/player_background_view"
+        app:layout_constraintVertical_chainStyle="packed">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="0.0" />
+    </Constraint>
+
+    <Constraint
+        android:id="@id/artist_name_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/player_background_view"
+        app:layout_constraintEnd_toStartOf="@id/back_15_image_view"
+        app:layout_constraintStart_toEndOf="@id/album_art_image_view"
+        app:layout_constraintTop_toBottomOf="@id/audio_name_text_view"
+        app:layout_constraintVertical_chainStyle="packed">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="0.0" />
+      <CustomAttribute
+          app:attributeName="textColor"
+          app:customColorValue="@color/textOrange" />
+    </Constraint>
+
+    <Constraint
+        android:id="@id/audio_name_text_view_min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/back_15_image_view"
+        app:layout_constraintStart_toEndOf="@id/album_art_image_view"
+        app:layout_constraintTop_toTopOf="@id/album_art_image_view">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="1.0" />
+    </Constraint>
+
+    <Constraint
+        android:id="@id/artist_name_text_view_min"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/back_15_image_view"
+        app:layout_constraintStart_toEndOf="@id/album_art_image_view"
+        app:layout_constraintTop_toBottomOf="@id/audio_name_text_view_min">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="1.0" />
+      <CustomAttribute
+          app:attributeName="textColor"
+          app:customColorValue="@color/textOrange" />
+    </Constraint>
+
+    <Constraint
+        android:id="@id/back_15_image_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toStartOf="@id/play_pause_layout"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+
+    <Constraint
+        android:id="@id/play_pause_layout"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@id/player_background_view"
+        app:layout_constraintEnd_toStartOf="@id/forward_15_image_view"
+        app:layout_constraintTop_toTopOf="@id/player_background_view"
+        />
+
+    <Constraint
+        android:id="@id/forward_15_image_view"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toEndOf="@id/player_background_view"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+
+    <Constraint
+        android:id="@id/top_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/player_background_view"
+        app:layout_constraintStart_toStartOf="@id/player_background_view"
+        app:layout_constraintTop_toBottomOf="@id/player_background_view"
+        />
+
+    <Constraint
+        android:id="@id/prev_image_view"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toStartOf="@id/back_15_image_view"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+
+    <Constraint
+        android:id="@id/next_image_view"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="center"
+        android:layout_marginEnd="24dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/play_pause_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/play_pause_layout"
+        />
+
+    <Constraint
+        android:id="@id/speed_state_image_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/play_pause_layout"
+        />
+
+    <Constraint
+        android:id="@id/play_pause_top_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/play_pause_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".03"
+        android:visibility="gone"
+        />
+
+    <Constraint
+        android:id="@id/play_pause_bottom_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/speed_state_image_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".03"
+        android:visibility="gone"
+        />
+
+    <Constraint
+        android:id="@id/top_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/player_background_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+      <CustomAttribute
+          app:attributeName="alpha"
+          app:customFloatValue="0.0"/>
+    </Constraint>
+
+  </ConstraintSet>
+</MotionScene>
